@@ -99,7 +99,7 @@ android {
     buildToolsVersion '28.0.2'
 
     defaultConfig {
-        applicationId "com.boilerplate"
+        applicationId "com.amnesia"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100

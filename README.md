@@ -1,20 +1,14 @@
-React Native Boilerplate
+Amnesia Game
 ===
 
 [![React Native](https://img.shields.io/badge/react%20native-0.57.1-brightgreen.svg)](https://github.com/facebook/react-native)
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/KalebPortillo/react-native-boilerplate/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/KalebPortillo/amnesia-game/blob/master/LICENSE)
 
-Building apps with React Native is great, because it helps create high quality products for both major mobile platforms quickly and cost-effectively.
-
-Getting started on a new app just takes too long, though. Most apps need the same basic building blocks and developer infrastructure, and most of us are bored of reinventing the wheel time and time again.
-
-## tldr;
-
-Sounds good and you just want to see how it works? Here is a quick start guide:
+Here is a quick start guide:
 
 ```
-git clone git@github.com:KalebPortillo/react-native-boilerplate.git
-cd react-native-boilerplate
+git clone git@github.com:KalebPortillo/amnesia-game.git
+cd amnesia-game
 yarn install
 yarn run ios
 ```
@@ -45,13 +39,7 @@ For further setup instructions please see our [Getting Started](#getting-started
 
 ## Getting started
 
-To build your own app on top of the Boilerplate, fork or mirror this repository. For serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/), since you can't make a fork of a public repository private on GitHub. To contribute to Boilerplate development or just playing around, forking is the way to go.
-
-First, give your application a name by running `./support/rename.sh YourAppName`.
-
-If you dont't want to rename de package name by hand, you can use [react-native-rename](https://github.com/junedomingo/react-native-rename)
-
-Of course, you will need node, npm, yarn(prefereb), Android Studio, Xcode, React Native CLI, and all these basic stuff setup in your machine
+You will need node, npm, yarn(preferably), Android Studio, Xcode, React Native CLI, and all these basic stuff setup in your machine
 
 ## Development workflow
 
@@ -105,14 +93,10 @@ $ brew update && brew cask install react-native-debugger
 
 ## Contributing
 
-If you find any problems, please [open an issue](https://github.com/KalebPortillo/react-native-boilerplate/issues/new) or submit a fix as a pull request.
+If you find any problems, please [open an issue](https://github.com/KalebPortillo/amnesia-game/issues/new) or submit a fix as a pull request.
 
 We welcome new features, but for large changes let's discuss first to make sure the changes can be accepted and integrated smoothly.
 
 ## License
 
 [MIT License](LICENSE)
-
-## Credits
-
-This project was based and motivated by [Pepperoni](https://github.com/futurice/pepperoni-app-kit) and [Ignite](https://github.com/infinitered/ignite-ir-boilerplate), React Native boilerplates by Futurice and InfiniteRed, respectively

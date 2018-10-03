@@ -1,4 +1,4 @@
-package com.boilerplate;
+package com.amnesia;
 
 import android.app.Application;
 

@@ -14,4 +14,4 @@ const Main = () => (
   </Provider>
 )
 
-AppRegistry.registerComponent('boilerplate', () => Main)
+AppRegistry.registerComponent('amnesia', () => Main)
