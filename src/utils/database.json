@@ -1,0 +1,77 @@
+{
+  "players": {
+    "portillo": {
+      "playerId": "portillo",
+      "name": "Kaleb Portilho",
+      "ranking": "memoria platina"
+    },
+    "phillfer": {
+      "playerId": "phillpfer",
+      "name": "Phillipe Ferreira",
+      "ranking": "memoria platina"
+    }
+  },
+  "rounds": {
+    "1234": [
+      {
+        "playersScore": {
+          "portillo": 80,
+          "phillfer": 70
+        },
+        "cards": [
+          {
+            "card":  "1",
+            "hidden": false,
+            "coordinates": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "5",
+                "6"
+              ]
+            ],
+            "by": "portillo"
+          }
+        ]
+      }
+    ]
+  },
+  "games": {
+    "1011": {
+      "round": {
+        "roundId": "1234",
+        "roundNumber": 1,
+        "turn": "portillo"
+      }
+    }
+  },
+  "cards": {
+    "1": {
+      "cardId": "1",
+      "name": "Google",
+      "image": "url"
+    },
+    "2": {
+      "cardId": "2",
+      "name": "Amazon",
+      "image": "url"
+    },
+    "3": {
+      "cardId": "3",
+      "name": "Google",
+      "image": "url"
+    }
+  },
+  "rooms": {
+    "one": {
+      "players": [
+        "portilho",
+        "phillfer"
+      ],
+      "game": "10111",
+      "started": true
+    }
+  }
+}
