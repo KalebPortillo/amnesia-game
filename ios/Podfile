@@ -1,0 +1,25 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'amnesia' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for amnesia
+
+  # Required by RNFirebase
+  pod 'Firebase/Core', '~> 5.9.0'
+  pod 'Firebase/Auth', '~> 5.9.0'
+  pod 'Firebase/Firestore', '~> 5.9.0'
+
+  target 'amnesia-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'amnesiaTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

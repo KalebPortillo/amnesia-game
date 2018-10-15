@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux'
-import CounterReducer from 'modules/counter/counter.state'
-import NavigatorReducer from 'modules/navigator/navigator.state'
+import NavigatorReducer from '../modules/navigator/navigator.state'
+import UserReducer from '../modules/user/user.state'
 // ## Generator Reducer Imports
 
 export const reducers = {
-  // Counter sample app state. This can be removed in a live application
-  counter: CounterReducer,
-  navigation: NavigatorReducer
+  navigation: NavigatorReducer,
+  user: UserReducer
 }
 
 export default combineReducers(reducers)

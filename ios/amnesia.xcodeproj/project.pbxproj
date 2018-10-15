@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -14,6 +15,7 @@
 		00E356F31AD99517003FC87E /* amnesiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* amnesiaTests.m */; };
 		05718A3F801649DF99F276C6 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C17AD2F266444E48191CEF5 /* libSplashScreen.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
+		138A9D7C74704C0CAE8E1174 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93302AFCE85A43869FE01E1E /* libRNFirebase.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -23,6 +25,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1FC01000B5014196BE00FCF6 /* raleway-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A548B628FDAA4E41AD1349A9 /* raleway-semibold.ttf */; };
+		27F4196F216F957A00CF4D5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27F4196E216F957A00CF4D5B /* GoogleService-Info.plist */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -44,12 +47,15 @@
 		6688574E063B49B4BE167BE9 /* opensans-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834E01E049784C1BA7810DF7 /* opensans-light.ttf */; };
 		7E467A02235D4D219854F21F /* opensans-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 723B588C3FCA4177983B3D16 /* opensans-regular.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		900BE27A90BC8FEBF5FDD842 /* libPods-amnesiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F086BF21F999EF81F8F3BDAE /* libPods-amnesiaTests.a */; };
 		A3DCD9D374964D68BBCEAE8D /* raleway-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8C450E3F71D4358B3653048 /* raleway-medium.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B0B24D565BCBBA65B7589C25 /* libPods-amnesia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CC220D7799220D5198215C /* libPods-amnesia.a */; };
 		B45F6BDC30F94A7FB3F88D8A /* raleway-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DBF8DE272D2456B99EF9254 /* raleway-light.ttf */; };
 		C27BCF232AB046E4B8482495 /* opensans-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13D205DA7A5944FDBACCFFE1 /* opensans-semibold.ttf */; };
 		C45377767A164115B42E1A85 /* raleway-extrabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16B2929DC2FE46439E70E076 /* raleway-extrabold.ttf */; };
 		D2D86562AA7F4DD58267CF8E /* raleway-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBAF86D027A04CD09A9FDB9E /* raleway-bold.ttf */; };
+		D5C4EEDF9EFD27115AB83AC5 /* libPods-amnesia-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D11B72603DC04384325F329 /* libPods-amnesia-tvOSTests.a */; };
 		F3E7C401616B4B1D9B980AC8 /* opensans-extrabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8072CA673A5D40A09B896CFC /* opensans-extrabold.ttf */; };
 		F60BED1276534C2C8EE96191 /* raleway-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 584F4E66ACFB4DA6AB114A09 /* raleway-regular.ttf */; };
 /* End PBXBuildFile section */
@@ -187,6 +193,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = EB2648DF1C7BE17A00B8F155;
 			remoteInfo = ReactNativeConfig;
+		};
+		27F4196C216F93B900CF4D5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF8832C53C09471985601E80 /* RNFirebase.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFirebase;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -365,6 +378,7 @@
 		13D205DA7A5944FDBACCFFE1 /* opensans-semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "opensans-semibold.ttf"; path = "../src/assets/fonts/opensans-semibold.ttf"; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		16B2929DC2FE46439E70E076 /* raleway-extrabold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-extrabold.ttf"; path = "../src/assets/fonts/raleway-extrabold.ttf"; sourceTree = "<group>"; };
+		27F4196E216F957A00CF4D5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* amnesia-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amnesia-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* amnesia-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "amnesia-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,8 +386,10 @@
 		54C4FC019AC4453FB239A814 /* opensans-bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "opensans-bold.ttf"; path = "../src/assets/fonts/opensans-bold.ttf"; sourceTree = "<group>"; };
 		584F4E66ACFB4DA6AB114A09 /* raleway-regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-regular.ttf"; path = "../src/assets/fonts/raleway-regular.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		6179A83E2C3FB6507D4101CB /* Pods-amnesia-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesia-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-amnesia-tvOSTests/Pods-amnesia-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DBF8DE272D2456B99EF9254 /* raleway-light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-light.ttf"; path = "../src/assets/fonts/raleway-light.ttf"; sourceTree = "<group>"; };
 		723B588C3FCA4177983B3D16 /* opensans-regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "opensans-regular.ttf"; path = "../src/assets/fonts/opensans-regular.ttf"; sourceTree = "<group>"; };
+		779EC316586A777A6D0AFF3F /* Pods-amnesia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesia.release.xcconfig"; path = "Pods/Target Support Files/Pods-amnesia/Pods-amnesia.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C17AD2F266444E48191CEF5 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		7CD3AA21EBE94C15B58F6BB8 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
@@ -383,11 +399,20 @@
 		834E01E049784C1BA7810DF7 /* opensans-light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "opensans-light.ttf"; path = "../src/assets/fonts/opensans-light.ttf"; sourceTree = "<group>"; };
 		8436B7302A034450837DC2A8 /* raleway-black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-black.ttf"; path = "../src/assets/fonts/raleway-black.ttf"; sourceTree = "<group>"; };
 		8B18114AB32D495189734BFB /* raleway-thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-thin.ttf"; path = "../src/assets/fonts/raleway-thin.ttf"; sourceTree = "<group>"; };
+		8D11B72603DC04384325F329 /* libPods-amnesia-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-amnesia-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93302AFCE85A43869FE01E1E /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		981AB5A9816644428E031408 /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		A548B628FDAA4E41AD1349A9 /* raleway-semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-semibold.ttf"; path = "../src/assets/fonts/raleway-semibold.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		B6CC220D7799220D5198215C /* libPods-amnesia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-amnesia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A36E6D69494CD8B266B8A1 /* Pods-amnesiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesiaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-amnesiaTests/Pods-amnesiaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C93F7C28BF5A2342D0A3EB84 /* Pods-amnesia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-amnesia/Pods-amnesia.debug.xcconfig"; sourceTree = "<group>"; };
+		CF8832C53C09471985601E80 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
+		D0DA97E40495C79D224FE53D /* Pods-amnesiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesiaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-amnesiaTests/Pods-amnesiaTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8C450E3F71D4358B3653048 /* raleway-medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-medium.ttf"; path = "../src/assets/fonts/raleway-medium.ttf"; sourceTree = "<group>"; };
 		DBAF86D027A04CD09A9FDB9E /* raleway-bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-bold.ttf"; path = "../src/assets/fonts/raleway-bold.ttf"; sourceTree = "<group>"; };
+		E986495C6C30896B4AD7423C /* Pods-amnesia-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesia-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-amnesia-tvOSTests/Pods-amnesia-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F086BF21F999EF81F8F3BDAE /* libPods-amnesiaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-amnesiaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				900BE27A90BC8FEBF5FDD842 /* libPods-amnesiaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +444,8 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				05718A3F801649DF99F276C6 /* libSplashScreen.a in Frameworks */,
 				3D32936ED8BE407C92062EC8 /* libReactNativeConfig.a in Frameworks */,
+				B0B24D565BCBBA65B7589C25 /* libPods-amnesia.a in Frameworks */,
+				138A9D7C74704C0CAE8E1174 /* libRNFirebase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +468,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C4EEDF9EFD27115AB83AC5 /* libPods-amnesia-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +557,7 @@
 		13B07FAE1A68108700A75B9A /* amnesia */ = {
 			isa = PBXGroup;
 			children = (
+				27F4196E216F957A00CF4D5B /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -566,6 +596,7 @@
 			children = (
 				7C17AD2F266444E48191CEF5 /* libSplashScreen.a */,
 				981AB5A9816644428E031408 /* libReactNativeConfig.a */,
+				93302AFCE85A43869FE01E1E /* libRNFirebase.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -586,10 +617,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		27F41969216F93B900CF4D5B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27F4196D216F93B900CF4D5B /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				B6CC220D7799220D5198215C /* libPods-amnesia.a */,
+				8D11B72603DC04384325F329 /* libPods-amnesia-tvOSTests.a */,
+				F086BF21F999EF81F8F3BDAE /* libPods-amnesiaTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -650,6 +692,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				7CD3AA21EBE94C15B58F6BB8 /* SplashScreen.xcodeproj */,
 				7E21C93B450A437CB30D3C39 /* ReactNativeConfig.xcodeproj */,
+				CF8832C53C09471985601E80 /* RNFirebase.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -673,6 +716,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				62F9833B394941C58C1B43C0 /* Resources */,
 				279A392A207D88260043A7A5 /* Recovered References */,
+				D3CCEB85DF7CCCAC0F01410B /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -699,6 +743,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D3CCEB85DF7CCCAC0F01410B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C93F7C28BF5A2342D0A3EB84 /* Pods-amnesia.debug.xcconfig */,
+				779EC316586A777A6D0AFF3F /* Pods-amnesia.release.xcconfig */,
+				E986495C6C30896B4AD7423C /* Pods-amnesia-tvOSTests.debug.xcconfig */,
+				6179A83E2C3FB6507D4101CB /* Pods-amnesia-tvOSTests.release.xcconfig */,
+				C6A36E6D69494CD8B266B8A1 /* Pods-amnesiaTests.debug.xcconfig */,
+				D0DA97E40495C79D224FE53D /* Pods-amnesiaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -706,6 +763,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "amnesiaTests" */;
 			buildPhases = (
+				77CBD74875B83A20698DF355 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -724,10 +782,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "amnesia" */;
 			buildPhases = (
+				D6ECF077D097F29BA9871C24 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				71507011644476209A28D871 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -760,6 +820,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "amnesia-tvOSTests" */;
 			buildPhases = (
+				128D7138CA2138250C394C0B /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -864,6 +925,10 @@
 				{
 					ProductGroup = 279A3988207DA1E40043A7A5 /* Products */;
 					ProjectRef = 7E21C93B450A437CB30D3C39 /* ReactNativeConfig.xcodeproj */;
+				},
+				{
+					ProductGroup = 27F41969216F93B900CF4D5B /* Products */;
+					ProjectRef = CF8832C53C09471985601E80 /* RNFirebase.xcodeproj */;
 				},
 				{
 					ProductGroup = 279A3950207D88270043A7A5 /* Products */;
@@ -1005,6 +1070,13 @@
 			fileType = archive.ar;
 			path = libReactNativeConfig.a;
 			remoteRef = 279A398B207DA1E40043A7A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27F4196D216F93B900CF4D5B /* libRNFirebase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFirebase.a;
+			remoteRef = 27F4196C216F93B900CF4D5B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */ = {
@@ -1180,6 +1252,7 @@
 				C45377767A164115B42E1A85 /* raleway-extrabold.ttf in Resources */,
 				3462118A86314CCD84814B47 /* raleway-extralight.ttf in Resources */,
 				B45F6BDC30F94A7FB3F88D8A /* raleway-light.ttf in Resources */,
+				27F4196F216F957A00CF4D5B /* GoogleService-Info.plist in Resources */,
 				A3DCD9D374964D68BBCEAE8D /* raleway-medium.ttf in Resources */,
 				F60BED1276534C2C8EE96191 /* raleway-regular.ttf in Resources */,
 				1FC01000B5014196BE00FCF6 /* raleway-semibold.ttf in Resources */,
@@ -1219,6 +1292,28 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		128D7138CA2138250C394C0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amnesia-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1232,6 +1327,72 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		71507011644476209A28D871 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-amnesia/Pods-amnesia-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-amnesia/Pods-amnesia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77CBD74875B83A20698DF355 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amnesiaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6ECF077D097F29BA9871C24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amnesia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1300,6 +1461,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6A36E6D69494CD8B266B8A1 /* Pods-amnesiaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1310,12 +1472,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = amnesiaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1330,6 +1494,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0DA97E40495C79D224FE53D /* Pods-amnesiaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1337,12 +1502,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = amnesiaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1357,6 +1524,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C93F7C28BF5A2342D0A3EB84 /* Pods-amnesia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1366,6 +1534,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = amnesia/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
@@ -1385,6 +1554,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 779EC316586A777A6D0AFF3F /* Pods-amnesia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1393,6 +1563,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = amnesia/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
@@ -1426,11 +1597,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "amnesia-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1462,11 +1635,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "amnesia-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1484,6 +1659,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E986495C6C30896B4AD7423C /* Pods-amnesia-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1499,6 +1675,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.amnesia-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1510,6 +1687,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6179A83E2C3FB6507D4101CB /* Pods-amnesia-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1523,6 +1701,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

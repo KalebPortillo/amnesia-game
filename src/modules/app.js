@@ -17,6 +17,7 @@ type Props = {
 export default class App extends Component<Props> {
   componentDidMount() {
     SplashScreen.hide()
+    console.log('PROPS', this.props)
   }
 
   render() {
