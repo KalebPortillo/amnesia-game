@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 
-import { AppStyles, Colors, Fonts, Metrics, Strings } from 'theme'
-import { AwesomeButton } from 'components'
+import { AppStyles, Colors, Fonts, Metrics, Strings } from '../../theme'
+import { AwesomeButton } from '../../components'
 
 type Props = {
   navigation: Object,

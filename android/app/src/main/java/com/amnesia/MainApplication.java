@@ -5,6 +5,8 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
+
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
@@ -30,7 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
                     new RNFirebasePackage(),
                     new ReactNativeConfigPackage(),
                     new SplashScreenReactPackage(),
-                    new RNFirebaseAuthPackage()
+                    new RNFirebaseAuthPackage(),
+                    new RNFirebaseFirestorePackage()
             );
         }
 

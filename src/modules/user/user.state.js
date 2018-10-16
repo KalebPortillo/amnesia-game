@@ -72,12 +72,6 @@ export default (state = initialState, action = {}) => {
     case RESET:
       return initialState
 
-    // case RANDOM_RESPONSE:
-    //   return {
-    //     loading: false,
-    //     state: action.payload
-    //   }
-
     default:
       return state
   }

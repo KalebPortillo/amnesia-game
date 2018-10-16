@@ -10,6 +10,7 @@
     "updateSnapshot": "jest --updateSnapshot",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
     "android:clean": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
+    "android:bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "android:build": "cd android && ENVFILE=.env.production ./gradlew assembleRelease",
     "android:build:stag": "cd android && ENVFILE=.env.staging ./gradlew assembleRelease",
     "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
