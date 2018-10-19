@@ -1,19 +1,24 @@
 import firebase from 'react-native-firebase'
 
+import { NavigationActions } from 'react-navigation'
+import { createGame, startGame } from '../game/game.state'
+
 const roomsRef = firebase.firestore().collection('rooms')
 const usersRef = firebase.firestore().collection('users')
 
 // Initial state
 const initialState = {
   opponent: null,
-  waiting: null
+  waiting: null,
+  countdown: 0
 }
 
 // Actions
-const SET = 'GameState/SET'
-const WAITING = 'GameState/WAITING'
-const OPPONENT = 'GameState/OPPONENT'
-const RESET = 'GameState/RESET'
+const SET = 'RoomState/SET'
+const WAITING = 'RoomState/WAITING'
+const OPPONENT = 'RoomState/OPPONENT'
+const COUNTDOWN = 'RoomState/COUNTDOWN'
+const RESET = 'RoomState/RESET'
 
 // Action creators
 export const findRoom = () => async dispatch => {
@@ -36,9 +41,11 @@ export const findRoom = () => async dispatch => {
     })
 }
 
-export const createRoom = () => async dispatch => {
+export const createRoom = () => async (dispatch, getStore) => {
+  const { user } = getStore()
   roomsRef
     .add({
+      owner: user.uid,
       status: 'waiting',
       players: []
     })
@@ -46,6 +53,7 @@ export const createRoom = () => async dispatch => {
       const docSnapshot = await docRef.get()
       console.log('CREATE ROOM', docSnapshot)
       dispatch(enterRoom(docSnapshot))
+      dispatch(createGame(docRef))
     })
     .catch(err => {
       console.log('CREATE ROOM ERROR', err)
@@ -57,22 +65,39 @@ export const enterRoom = room => async (dispatch, getStore) => {
   console.log('ENTER ROOM', docRef)
   docRef.onSnapshot(doc => {
     console.log('ON ROOM CHANGE', doc.data())
-    // console.log('ON ROOM CHANGE AFTER >>>>', doc.data())
-    const { players, status } = doc.data()
+    const { players, status, gameId } = doc.data()
     if (players.length > 1 && status === 'waiting') {
       docRef.update({
         status: 'playing'
       })
     } else if (status === 'playing') {
-      console.log('JOGANDO >>>>>>>>>>>>')
-      dispatch(setWaiting(false))
       dispatch(setOpponent(players.find(p => p !== user.uid)))
+      dispatch(startGame(gameId))
+      dispatch(startCountdown(3))
+      dispatch(setWaiting(false))
     }
   })
 
   docRef.update({
     players: [...room.data().players, user.uid]
   })
+}
+
+const startCountdown = count => dispatch => {
+  console.log('COUNT DOWN', count)
+
+  if (count > 0) {
+    dispatch({
+      type: COUNTDOWN,
+      payload: count
+    })
+
+    setTimeout(() => {
+      dispatch(startCountdown(count - 1))
+    }, 1000)
+  } else {
+    dispatch(NavigationActions.navigate({ routeName: 'Game' }))
+  }
 }
 
 export const setWaiting = waiting => ({
@@ -100,6 +125,8 @@ export default (state = initialState, action = {}) => {
       return { ...state, waiting: action.payload }
     case OPPONENT:
       return { ...state, opponent: action.payload }
+    case COUNTDOWN:
+      return { ...state, countdown: action.payload }
     default:
       return state
   }

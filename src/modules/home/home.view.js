@@ -29,7 +29,7 @@ export default class Home extends Component<Props> {
   render() {
     const {
       user: { name, score },
-      room: { waiting, opponent }
+      room: { waiting, opponent, countdown }
     } = this.props
 
     return (
@@ -60,6 +60,7 @@ export default class Home extends Component<Props> {
           <View>
             <Text>VOCE LUTARA COM {opponent.name}</Text>
             <Text>Nivel {opponent.score}</Text>
+            <Text>JOGO COMECA EM {countdown}</Text>
           </View>
         )}
       </View>

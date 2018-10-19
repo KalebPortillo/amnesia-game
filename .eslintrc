@@ -26,7 +26,8 @@
     ],
     "semi": ["error", "never"],
     "no-use-before-define": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-console": "off"
   },
   "env": {
     "jest": true

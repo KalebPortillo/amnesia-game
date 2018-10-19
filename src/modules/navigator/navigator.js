@@ -2,7 +2,7 @@ import { StackNavigator } from 'react-navigation'
 import { Easing, Animated } from 'react-native'
 
 import Home from '../home/home.container'
-import Counter from '../counter/counter.container'
+import Game from '../game/game.container'
 
 const transitionConfig = () => ({
   transitionSpec: {
@@ -30,7 +30,7 @@ const transitionConfig = () => ({
 const Navigator = StackNavigator(
   {
     Home: { screen: Home },
-    Counter: { screen: Counter }
+    Game: { screen: Game }
   },
   {
     // Default config for all screens
