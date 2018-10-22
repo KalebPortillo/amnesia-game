@@ -1,7 +1,7 @@
 import firebase from 'react-native-firebase'
 
 import { NavigationActions } from 'react-navigation'
-import { createGame, startGame } from '../game/game.state'
+import { setupGame, createRounds } from '../game/game.state'
 
 const roomsRef = firebase.firestore().collection('rooms')
 const usersRef = firebase.firestore().collection('users')
@@ -10,7 +10,8 @@ const usersRef = firebase.firestore().collection('users')
 const initialState = {
   opponent: null,
   waiting: null,
-  countdown: 0
+  countdown: 0,
+  roundIndex: 0
 }
 
 // Actions
@@ -29,11 +30,11 @@ export const findRoom = () => async dispatch => {
     .get()
     .then(querySnapshot => {
       const { docs } = querySnapshot
-      console.log('FIND ROOM', querySnapshot.docs)
+      console.log('FIND ROOM', querySnapshot)
       if (docs.length < 1) {
         dispatch(createRoom())
       } else {
-        dispatch(enterRoom(docs[0]))
+        dispatch(enterRoom(docs[0].ref))
       }
     })
     .catch(err => {
@@ -43,59 +44,80 @@ export const findRoom = () => async dispatch => {
 
 export const createRoom = () => async (dispatch, getStore) => {
   const { user } = getStore()
-  roomsRef
-    .add({
+
+  const roomRef = roomsRef.doc()
+  roomRef
+    .set({
       owner: user.uid,
       status: 'waiting',
-      players: []
+      players: [],
+      roomId: roomRef.id
     })
-    .then(async docRef => {
-      const docSnapshot = await docRef.get()
-      console.log('CREATE ROOM', docSnapshot)
-      dispatch(enterRoom(docSnapshot))
-      dispatch(createGame(docRef))
-    })
+    .then(async () => {})
     .catch(err => {
       console.log('CREATE ROOM ERROR', err)
     })
+
+  dispatch(createRounds(roomRef))
+  dispatch(enterRoom(roomRef))
 }
-export const enterRoom = room => async (dispatch, getStore) => {
+
+export const enterRoom = roomRef => async (dispatch, getStore) => {
   const { user } = getStore()
-  const docRef = roomsRef.doc(room.id)
-  console.log('ENTER ROOM', docRef)
-  docRef.onSnapshot(doc => {
+
+  roomRef.onSnapshot(doc => {
     console.log('ON ROOM CHANGE', doc.data())
-    const { players, status, gameId } = doc.data()
+    const previousRoom = getStore().room
+    const { players, status, rounds, roundIndex } = doc.data()
+
+    // UPDATE ROOM STATE DATA
+    dispatch({
+      type: SET,
+      payload: doc.data()
+    })
+
+    // CHECK IF ANOTHER PLAYER ENTERED THE ROOM AND SET ROOM TO PLAYING
     if (players.length > 1 && status === 'waiting') {
-      docRef.update({
+      roomRef.update({
         status: 'playing'
       })
-    } else if (status === 'playing') {
+      // AFTER ROOM UPDATE STATUS TO PLAYING COUNTDOWN AND GAME
+    } else if (status === 'playing' && roundIndex === 0) {
       dispatch(setOpponent(players.find(p => p !== user.uid)))
-      dispatch(startGame(gameId))
-      dispatch(startCountdown(3))
+      dispatch(
+        setCountdown(3, () => {
+          dispatch(setupGame(rounds[roundIndex]))
+        })
+      )
       dispatch(setWaiting(false))
+
+      //  Check IF ROUND INDEX CHANGE AND START NEW ROUND
+    } else if (roundIndex !== previousRoom.roundIndex) {
+      if (roundIndex < 3) {
+        dispatch(setupGame(rounds[roundIndex]))
+        console.log('PROCEED TO CHANGE ROUND >>>>>>')
+      }
     }
   })
 
-  docRef.update({
-    players: [...room.data().players, user.uid]
+  const roomSnap = await roomRef.get()
+  roomRef.update({
+    players: [...roomSnap.data().players, user.uid]
   })
 }
 
-const startCountdown = count => dispatch => {
-  console.log('COUNT DOWN', count)
-
-  if (count > 0) {
+const setCountdown = (count, callback) => dispatch => {
+  if (count > -1) {
     dispatch({
       type: COUNTDOWN,
       payload: count
     })
 
     setTimeout(() => {
-      dispatch(startCountdown(count - 1))
+      dispatch(setCountdown(count - 1, callback))
     }, 1000)
   } else {
+    callback()
     dispatch(NavigationActions.navigate({ routeName: 'Game' }))
   }
 }
@@ -134,3 +156,4 @@ export default (state = initialState, action = {}) => {
 
 // Selectors
 export const selectRoom = state => state.room
+export const selectOpponent = state => selectRoom(state).opponent
