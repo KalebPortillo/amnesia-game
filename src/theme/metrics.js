@@ -11,6 +11,7 @@ export default {
   doubleBaseMargin: 20,
   section: 25,
   doubleSection: 50,
+  headerheight: 80,
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
   navBarHeight: Platform.select({ ios: 64, android: 54 }),

@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
   },
   text: {
     ...Fonts.style.normal,
-    color: Colors.bloodOrange
+    color: Colors.white
   }
 })

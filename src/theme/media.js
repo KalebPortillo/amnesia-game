@@ -5,7 +5,9 @@ const images = {
   badge: require('../assets/media/badge.png')
 }
 
-const icons = {}
+const icons = {
+  elephant: require('../assets/media/elephant.png')
+}
 
 export default {
   icons,

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, TextInput, Text } from 'react-native'
 import { AwesomeButton } from '../../components'
+import colors from '../../theme/colors'
+import Header from '../../components/header'
 
 type Props = {
   authenticationRequest: Function,
@@ -34,35 +36,38 @@ export default class Home extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        {name ? (
-          <View>
-            <Text>Bem vindo {name}</Text>
-            <Text>Nivel {score}</Text>
-          </View>
-        ) : (
-          <TextInput
-            style={{ height: 50, width: '90%' }}
-            placeholder="Player name"
-            onChangeText={text =>
-              this.setState({
-                name: text
-              })
-            }
-            value={this.state.name}
-          />
-        )}
-        {waiting === null ? (
-          <AwesomeButton onPress={this.startGame} text="START" />
-        ) : (
-          <Text>{waiting ? 'PROCURANDO OPONENTE...' : 'OPONENTE ENCONTRADO'}</Text>
-        )}
-        {opponent && (
-          <View>
-            <Text>VOCE LUTARA COM {opponent.name}</Text>
-            <Text>Nivel {opponent.score}</Text>
-            <Text>JOGO COMECA EM {countdown}</Text>
-          </View>
-        )}
+        <Header title="Lobby" />
+        <View style={styles.content}>
+          {name ? (
+            <View>
+              <Text>Bem vindo {name}</Text>
+              <Text>Nivel {score}</Text>
+            </View>
+          ) : (
+            <TextInput
+              style={{ height: 50, width: '90%' }}
+              placeholder="Player name"
+              onChangeText={text =>
+                this.setState({
+                  name: text
+                })
+              }
+              value={this.state.name}
+            />
+          )}
+          {waiting === null ? (
+            <AwesomeButton onPress={this.startGame} text="START" />
+          ) : (
+            <Text>{waiting ? 'PROCURANDO OPONENTE...' : 'OPONENTE ENCONTRADO'}</Text>
+          )}
+          {opponent && (
+            <View>
+              <Text>VOCE LUTARA COM {opponent.name}</Text>
+              <Text>Nivel {opponent.score}</Text>
+              <Text>JOGO COMECA EM {countdown}</Text>
+            </View>
+          )}
+        </View>
       </View>
     )
   }
@@ -71,7 +76,11 @@ export default class Home extends Component<Props> {
 const styles = {
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: colors.background
+  },
+  content: {
+    flex: 1
   }
 }

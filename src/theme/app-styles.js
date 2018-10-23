@@ -30,12 +30,12 @@ export default {
     sectionText: {
       ...Fonts.style.normal,
       paddingVertical: Metrics.doubleBaseMargin,
-      color: Colors.snow,
+      color: Colors.white,
       marginVertical: Metrics.smallMargin,
       textAlign: 'center'
     },
     subtitle: {
-      color: Colors.snow,
+      color: Colors.white,
       padding: Metrics.smallMargin,
       marginBottom: Metrics.smallMargin,
       marginHorizontal: Metrics.smallMargin
@@ -53,23 +53,23 @@ export default {
   buttonBorder: {
     borderWidth: Metrics.buttonBorder,
     borderRadius: Metrics.buttonRadius,
-    borderColor: Colors.fire
+    borderColor: Colors.white
   },
   roundBorder: {
     borderWidth: Metrics.buttonBorder,
     borderRadius: Metrics.section,
-    borderColor: Colors.fire
+    borderColor: Colors.white
   },
   darkLabelContainer: {
     padding: Metrics.smallMargin,
     paddingBottom: Metrics.doubleBaseMargin,
-    borderBottomColor: Colors.border,
+    borderBottomColor: Colors.white,
     borderBottomWidth: 1,
     marginBottom: Metrics.baseMargin
   },
   darkLabel: {
     fontFamily: Fonts.type.bold,
-    color: Colors.snow
+    color: Colors.white
   },
   groupContainer: {
     margin: Metrics.smallMargin,
@@ -79,13 +79,13 @@ export default {
   },
   sectionTitle: {
     ...Fonts.style.h4,
-    color: Colors.coal,
-    backgroundColor: Colors.ricePaper,
+    color: Colors.white,
+    backgroundColor: Colors.greenLight,
     padding: Metrics.smallMargin,
     marginTop: Metrics.smallMargin,
     marginHorizontal: Metrics.baseMargin,
     borderWidth: 1,
-    borderColor: Colors.ember,
+    borderColor: Colors.greenLight,
     alignItems: 'center',
     textAlign: 'center'
   }

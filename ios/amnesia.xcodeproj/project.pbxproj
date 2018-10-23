@@ -45,6 +45,9 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		654964C358A4465E9EB73693 /* opensans-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54C4FC019AC4453FB239A814 /* opensans-bold.ttf */; };
 		6688574E063B49B4BE167BE9 /* opensans-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834E01E049784C1BA7810DF7 /* opensans-light.ttf */; };
+		799ACD1C217F6F15006719C8 /* roboto-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799ACCF1217F6F14006719C8 /* roboto-regular.ttf */; };
+		799ACD1D217F6F15006719C8 /* roboto-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799ACD1A217F6F14006719C8 /* roboto-bold.ttf */; };
+		799ACD1E217F6F15006719C8 /* roboto-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799ACD1B217F6F15006719C8 /* roboto-light.ttf */; };
 		7E467A02235D4D219854F21F /* opensans-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 723B588C3FCA4177983B3D16 /* opensans-regular.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		900BE27A90BC8FEBF5FDD842 /* libPods-amnesiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F086BF21F999EF81F8F3BDAE /* libPods-amnesiaTests.a */; };
@@ -391,6 +394,9 @@
 		723B588C3FCA4177983B3D16 /* opensans-regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "opensans-regular.ttf"; path = "../src/assets/fonts/opensans-regular.ttf"; sourceTree = "<group>"; };
 		779EC316586A777A6D0AFF3F /* Pods-amnesia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amnesia.release.xcconfig"; path = "Pods/Target Support Files/Pods-amnesia/Pods-amnesia.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		799ACCF1217F6F14006719C8 /* roboto-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "roboto-regular.ttf"; path = "../src/assets/fonts/roboto-regular.ttf"; sourceTree = "<group>"; };
+		799ACD1A217F6F14006719C8 /* roboto-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "roboto-bold.ttf"; path = "../src/assets/fonts/roboto-bold.ttf"; sourceTree = "<group>"; };
+		799ACD1B217F6F15006719C8 /* roboto-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "roboto-light.ttf"; path = "../src/assets/fonts/roboto-light.ttf"; sourceTree = "<group>"; };
 		7C17AD2F266444E48191CEF5 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		7CD3AA21EBE94C15B58F6BB8 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		7E21C93B450A437CB30D3C39 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
@@ -648,6 +654,9 @@
 		62F9833B394941C58C1B43C0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				799ACD1A217F6F14006719C8 /* roboto-bold.ttf */,
+				799ACD1B217F6F15006719C8 /* roboto-light.ttf */,
+				799ACCF1217F6F14006719C8 /* roboto-regular.ttf */,
 				54C4FC019AC4453FB239A814 /* opensans-bold.ttf */,
 				8072CA673A5D40A09B896CFC /* opensans-extrabold.ttf */,
 				834E01E049784C1BA7810DF7 /* opensans-light.ttf */,
@@ -1240,6 +1249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799ACD1C217F6F15006719C8 /* roboto-regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				654964C358A4465E9EB73693 /* opensans-bold.ttf in Resources */,
@@ -1249,11 +1259,13 @@
 				C27BCF232AB046E4B8482495 /* opensans-semibold.ttf in Resources */,
 				4CD97756E6D7495580958124 /* raleway-black.ttf in Resources */,
 				D2D86562AA7F4DD58267CF8E /* raleway-bold.ttf in Resources */,
+				799ACD1E217F6F15006719C8 /* roboto-light.ttf in Resources */,
 				C45377767A164115B42E1A85 /* raleway-extrabold.ttf in Resources */,
 				3462118A86314CCD84814B47 /* raleway-extralight.ttf in Resources */,
 				B45F6BDC30F94A7FB3F88D8A /* raleway-light.ttf in Resources */,
 				27F4196F216F957A00CF4D5B /* GoogleService-Info.plist in Resources */,
 				A3DCD9D374964D68BBCEAE8D /* raleway-medium.ttf in Resources */,
+				799ACD1D217F6F15006719C8 /* roboto-bold.ttf in Resources */,
 				F60BED1276534C2C8EE96191 /* raleway-regular.ttf in Resources */,
 				1FC01000B5014196BE00FCF6 /* raleway-semibold.ttf in Resources */,
 				39A298999E3C4A1A9CB4FDFA /* raleway-thin.ttf in Resources */,
@@ -1290,7 +1302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		128D7138CA2138250C394C0B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
