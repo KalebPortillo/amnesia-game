@@ -6,7 +6,7 @@ const ref = firebase.firestore().collection('users')
 
 // Initial state
 const initialState = {
-  fetching: false,
+  fetching: null,
   uid: null,
   name: null
 }
@@ -14,14 +14,18 @@ const initialState = {
 // Actions
 const SET = 'UserState/SET'
 const RESET = 'UserState/RESET'
+const FETCHING = 'UserState/FETCHING'
 
 // Action creators
 export const authenticationRequest = () => async dispatch => {
   const { user } = await firebase.auth().signInAnonymously()
+  dispatch(setFetching(true))
   console.log('CREDENTIALS', user)
 
   if (user.displayName) {
     dispatch(retrieveUser(user.uid))
+  } else {
+    dispatch(setFetching(false))
   }
 }
 
@@ -34,6 +38,7 @@ export const retrieveUser = uid => async dispatch => {
         type: SET,
         payload: doc.data()
       })
+      dispatch(setFetching(false))
     })
     .catch(err => {
       console.log('ERROR GETTING USER: ', err)
@@ -80,6 +85,11 @@ export const addScore = score => (dispatch, getState) => {
   })
 }
 
+export const setFetching = fetching => ({
+  type: FETCHING,
+  payload: fetching
+})
+
 // Reducer
 export default (state = initialState, action = {}) => {
   switch (action.type) {
@@ -88,7 +98,8 @@ export default (state = initialState, action = {}) => {
 
     case RESET:
       return initialState
-
+    case FETCHING:
+      return { ...state, fetching: action.payload }
     default:
       return state
   }

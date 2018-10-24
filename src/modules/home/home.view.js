@@ -32,7 +32,7 @@ export default class Home extends Component<Props> {
 
   render() {
     const {
-      user: { name, score },
+      user: { name, score, fetching },
       room: { waiting, opponent, countdown }
     } = this.props
 
@@ -41,26 +41,34 @@ export default class Home extends Component<Props> {
         <Header title="Lobby" />
         <View style={styles.content}>
           <View style={styles.playerInfo}>
-            {name ? (
-              <View style={{ alignItems: 'center' }}>
-                <Text style={{ fontSize: 20, marginBottom: 5 }}>Olá {name}</Text>
-                <Text style={{ fontSize: 18, color: Colors.white, fontWeight: 'bold' }}>
-                  {ranking(score)}
-                </Text>
-                <Text style={{ fontSize: 15, color: Colors.white }}>{score} pontos</Text>
-              </View>
+            {fetching ? (
+              <ActivityIndicator size={'large'} color={Colors.white} />
             ) : (
-              <View style={{ borderWidth: 1, borderColor: Colors.black, paddingHorizontal: 10 }}>
-                <TextInput
-                  style={{ height: 50, width: '90%', fontSize: 25 }}
-                  placeholder="Seu nome"
-                  onChangeText={text =>
-                    this.setState({
-                      name: text
-                    })
-                  }
-                  value={this.state.name}
-                />
+              <View>
+                {name ? (
+                  <View style={{ alignItems: 'center' }}>
+                    <Text style={{ fontSize: 20, marginBottom: 5 }}>Olá {name}</Text>
+                    <Text style={{ fontSize: 18, color: Colors.white, fontWeight: 'bold' }}>
+                      {ranking(score)}
+                    </Text>
+                    <Text style={{ fontSize: 15, color: Colors.white }}>{score} pontos</Text>
+                  </View>
+                ) : (
+                  <View
+                    style={{ borderWidth: 1, borderColor: Colors.black, paddingHorizontal: 10 }}
+                  >
+                    <TextInput
+                      style={{ height: 50, width: '90%', fontSize: 25 }}
+                      placeholder="Seu nome"
+                      onChangeText={text =>
+                        this.setState({
+                          name: text
+                        })
+                      }
+                      value={this.state.name}
+                    />
+                  </View>
+                )}
               </View>
             )}
           </View>
