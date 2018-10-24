@@ -9,49 +9,6 @@ const roomsRef = firebase.firestore().collection('rooms')
 let unsubscribe
 let countdownTimeout
 
-const cardList = [
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png',
-    id: 1
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png',
-    id: 2
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png',
-    id: 3
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/jquery-logo.png',
-    id: 4
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png',
-    id: 5
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png',
-    id: 6
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/photoshop-logo.png',
-    id: 7
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png',
-    id: 8
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png',
-    id: 9
-  },
-  {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png',
-    id: 10
-  }
-]
-
 // Initial state
 const initialState = {
   cards: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
@@ -66,13 +23,13 @@ const OPPONENT = 'GameState/OPPONENT'
 const RESET = 'GameState/RESET'
 const COUNTDOWN = 'GameState/COUNTDOWN'
 
-// const shuffleArray = arr =>
-//   arr
-//     .map(a => [Math.random(), a])
-//     .sort((a, b) => a[0] - b[0])
-//     .map(a => a[1])
+const shuffleArray = arr =>
+  arr
+    .map(a => [Math.random(), a])
+    .sort((a, b) => a[0] - b[0])
+    .map(a => a[1])
 
-const shuffleArray = arr => arr
+// const shuffleArray = arr => arr
 
 // Action creators
 export const setWaiting = waiting => ({
@@ -85,7 +42,7 @@ export const createRounds = roomRef => dispatch => {
   const rounds = []
   for (let i = 0; i < 3; i++) {
     const gameRef = gamesRef.doc()
-    dispatch(createGame(gameRef))
+    dispatch(createGame(gameRef, i))
     rounds.push(gameRef.id)
   }
 
@@ -95,15 +52,15 @@ export const createRounds = roomRef => dispatch => {
   })
 }
 
-export const createGame = gameRef => async (dispatch, getStore) => {
-  const { user } = getStore()
+export const createGame = (gameRef, index) => async (dispatch, getStore) => {
+  const { user, deck } = getStore()
 
   gameRef
     .set({
       gameId: gameRef.id,
       owner: user.uid,
       turn: user.uid,
-      cards: shuffleArray([...cardList, ...cardList])
+      cards: shuffleArray([...deck[index], ...deck[index]])
     })
     .then(() => {
       console.log('CREATE GAME', gameRef.id)

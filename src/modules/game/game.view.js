@@ -7,6 +7,7 @@ import Header from '../../components/header'
 import RoundCounter from '../../components/round-counter'
 import { AppStyles, Colors } from '../../theme'
 import { AwesomeButton } from '../../components'
+import ranking from '../../utils/ranking'
 
 type Props = {
   navigation: Object,
@@ -156,7 +157,7 @@ export default class Game extends PureComponent<Props> {
                     <Text style={{ color: Colors.white, fontSize: 15 }}>Ranking:</Text>
                     <Text style={{ color: Colors.white, fontSize: 15, fontWeight: 'bold' }}>
                       {' '}
-                      Memoria prata
+                      {ranking(user.score)}
                     </Text>
                   </View>
                   <AwesomeButton

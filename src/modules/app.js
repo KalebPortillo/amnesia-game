@@ -10,6 +10,7 @@ import { Loader } from '../components'
 // import configureStore from '../redux/store'
 import Navigator from './navigator/navigator.container'
 import { authenticationRequest } from './user/user.state'
+import { retrieveDecks } from './deck/deck.state'
 
 // const { store, persistor } = configureStore()
 type Props = {
@@ -20,6 +21,7 @@ export default class App extends Component<Props> {
   componentDidMount() {
     SplashScreen.hide()
     this.props.dispatch(authenticationRequest())
+    this.props.dispatch(retrieveDecks())
   }
 
   render() {

@@ -4,6 +4,7 @@ import { Colors } from '../../theme'
 import { AwesomeButton } from '../../components'
 import Header from '../../components/header'
 import RoundCounter from '../../components/round-counter'
+import ranking from '../../utils/ranking'
 
 type Props = {
   reset: Function,
@@ -44,7 +45,7 @@ export default class Home extends Component<Props> {
               <View style={{ alignItems: 'center' }}>
                 <Text style={{ fontSize: 20, marginBottom: 5 }}>Olá {name}</Text>
                 <Text style={{ fontSize: 18, color: Colors.white, fontWeight: 'bold' }}>
-                  Memória prata
+                  {ranking(score)}
                 </Text>
                 <Text style={{ fontSize: 15, color: Colors.white }}>{score} pontos</Text>
               </View>
@@ -90,7 +91,9 @@ export default class Home extends Component<Props> {
                   <Text style={{ fontSize: 20, fontWeight: 'bold', color: Colors.white }}>
                     {opponent.name}
                   </Text>
-                  <Text style={{ fontSize: 14, color: Colors.white }}>Memória prata</Text>
+                  <Text style={{ fontSize: 14, color: Colors.white }}>
+                    {ranking(opponent.score)}
+                  </Text>
                 </View>
                 <View style={{ alignItems: 'center' }}>
                   <Text style={{ color: Colors.greenLight, fontSize: 12, marginBottom: 10 }}>
