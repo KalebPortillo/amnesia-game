@@ -12,18 +12,18 @@ Object {
 exports[`<AwesomeButton> Structure renders correctly 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       undefined,
@@ -34,8 +34,8 @@ exports[`<AwesomeButton> Structure renders correctly 1`] = `
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         undefined,
@@ -50,18 +50,18 @@ exports[`<AwesomeButton> Structure renders correctly 1`] = `
 exports[`<AwesomeButton> Structure renders external container style from ID 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       Object {
@@ -74,8 +74,8 @@ exports[`<AwesomeButton> Structure renders external container style from ID 1`] 
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         undefined,
@@ -90,18 +90,18 @@ exports[`<AwesomeButton> Structure renders external container style from ID 1`] 
 exports[`<AwesomeButton> Structure renders external container style from array 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       Array [
@@ -119,8 +119,8 @@ exports[`<AwesomeButton> Structure renders external container style from array 1
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         undefined,
@@ -135,18 +135,18 @@ exports[`<AwesomeButton> Structure renders external container style from array 1
 exports[`<AwesomeButton> Structure renders external container style from object 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       Object {
@@ -159,8 +159,8 @@ exports[`<AwesomeButton> Structure renders external container style from object 
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         undefined,
@@ -175,18 +175,18 @@ exports[`<AwesomeButton> Structure renders external container style from object 
 exports[`<AwesomeButton> Structure renders external text style from ID 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       undefined,
@@ -197,8 +197,8 @@ exports[`<AwesomeButton> Structure renders external text style from ID 1`] = `
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         Object {
@@ -215,18 +215,18 @@ exports[`<AwesomeButton> Structure renders external text style from ID 1`] = `
 exports[`<AwesomeButton> Structure renders external text style from array 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       undefined,
@@ -237,8 +237,8 @@ exports[`<AwesomeButton> Structure renders external text style from array 1`] = 
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         Array [
@@ -260,18 +260,18 @@ exports[`<AwesomeButton> Structure renders external text style from array 1`] = 
 exports[`<AwesomeButton> Structure renders external text style from object 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  disabled={false}
   onPress={[Function]}
   style={
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "#e73536",
-        "borderRadius": 5,
-        "borderWidth": 2,
+        "backgroundColor": "#1F98B1",
+        "borderRadius": 25,
         "flex": 1,
         "justifyContent": "center",
         "maxHeight": 50,
+        "minWidth": 100,
         "padding": 10,
       },
       undefined,
@@ -282,8 +282,8 @@ exports[`<AwesomeButton> Structure renders external text style from object 1`] =
     style={
       Array [
         Object {
-          "color": "#fb5f26",
-          "fontFamily": "Open Sans",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
           "fontSize": 17,
         },
         Object {

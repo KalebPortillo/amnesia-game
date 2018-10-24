@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text } from 'react-native'
+import { View, TextInput, Text, ActivityIndicator } from 'react-native'
+import { Colors } from '../../theme'
 import { AwesomeButton } from '../../components'
-import colors from '../../theme/colors'
 import Header from '../../components/header'
+import RoundCounter from '../../components/round-counter'
 
 type Props = {
-  authenticationRequest: Function,
+  reset: Function,
   createUser: Function,
   findRoom: Function,
   user: Object,
@@ -17,7 +18,7 @@ export default class Home extends Component<Props> {
   }
 
   componentDidMount() {
-    this.props.authenticationRequest()
+    this.props.reset()
   }
 
   startGame = () => {
@@ -38,35 +39,68 @@ export default class Home extends Component<Props> {
       <View style={styles.container}>
         <Header title="Lobby" />
         <View style={styles.content}>
-          {name ? (
-            <View>
-              <Text>Bem vindo {name}</Text>
-              <Text>Nivel {score}</Text>
-            </View>
-          ) : (
-            <TextInput
-              style={{ height: 50, width: '90%' }}
-              placeholder="Player name"
-              onChangeText={text =>
-                this.setState({
-                  name: text
-                })
-              }
-              value={this.state.name}
-            />
-          )}
-          {waiting === null ? (
-            <AwesomeButton onPress={this.startGame} text="START" />
-          ) : (
-            <Text>{waiting ? 'PROCURANDO OPONENTE...' : 'OPONENTE ENCONTRADO'}</Text>
-          )}
-          {opponent && (
-            <View>
-              <Text>VOCE LUTARA COM {opponent.name}</Text>
-              <Text>Nivel {opponent.score}</Text>
-              <Text>JOGO COMECA EM {countdown}</Text>
-            </View>
-          )}
+          <View style={styles.playerInfo}>
+            {name ? (
+              <View style={{ alignItems: 'center' }}>
+                <Text style={{ fontSize: 20, marginBottom: 5 }}>Olá {name}</Text>
+                <Text style={{ fontSize: 18, color: Colors.white, fontWeight: 'bold' }}>
+                  Memória prata
+                </Text>
+                <Text style={{ fontSize: 15, color: Colors.white }}>{score} pontos</Text>
+              </View>
+            ) : (
+              <View style={{ borderWidth: 1, borderColor: Colors.black, paddingHorizontal: 10 }}>
+                <TextInput
+                  style={{ height: 50, width: '90%', fontSize: 25 }}
+                  placeholder="Seu nome"
+                  onChangeText={text =>
+                    this.setState({
+                      name: text
+                    })
+                  }
+                  value={this.state.name}
+                />
+              </View>
+            )}
+          </View>
+          <View style={{ flex: 3, alignItems: 'center', justifyContent: 'center' }}>
+            {!opponent.name ? (
+              <View>
+                {waiting === null ? (
+                  <AwesomeButton
+                    onPress={this.startGame}
+                    text="JOGAR"
+                    disabled={!name && !this.state.name}
+                  />
+                ) : (
+                  <View>
+                    <ActivityIndicator color={Colors.white} size="large" />
+                    <Text style={{ color: Colors.white, marginTop: 20 }}>
+                      Procurando por adversário...
+                    </Text>
+                  </View>
+                )}
+              </View>
+            ) : (
+              <View>
+                <View style={{ alignItems: 'center', marginBottom: 25 }}>
+                  <Text style={{ fontSize: 14, fontWeight: 'bold', color: Colors.greenLight }}>
+                    Adversário encontrado:
+                  </Text>
+                  <Text style={{ fontSize: 20, fontWeight: 'bold', color: Colors.white }}>
+                    {opponent.name}
+                  </Text>
+                  <Text style={{ fontSize: 14, color: Colors.white }}>Memória prata</Text>
+                </View>
+                <View style={{ alignItems: 'center' }}>
+                  <Text style={{ color: Colors.greenLight, fontSize: 12, marginBottom: 10 }}>
+                    O jogo começa em
+                  </Text>
+                  <RoundCounter count={countdown} />
+                </View>
+              </View>
+            )}
+          </View>
         </View>
       </View>
     )
@@ -77,10 +111,15 @@ const styles = {
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: colors.background
+    backgroundColor: Colors.background
   },
   content: {
     flex: 1
+  },
+  playerInfo: {
+    flex: 1,
+    backgroundColor: Colors.greenLight,
+    justifyContent: 'center',
+    paddingHorizontal: 20
   }
 }

@@ -11,7 +11,12 @@ import {
   selectScores
 } from './game.state'
 import { selectUser } from '../user/user.state'
-import { selectOpponent } from '../room/room.state'
+import {
+  selectOpponent,
+  selectRound,
+  selectScores as selectTotalScores,
+  selectEnded
+} from '../room/room.state'
 
 const mapStateToProps = state => ({
   user: selectUser(state),
@@ -21,7 +26,10 @@ const mapStateToProps = state => ({
   opponent: selectOpponent(state),
   turn: selectTurn(state),
   finished: selectFinished(state),
-  scores: selectScores(state)
+  scores: selectScores(state),
+  round: selectRound(state),
+  totalScores: selectTotalScores(state),
+  ended: selectEnded(state)
 })
 
 const mapActionsToProps = {

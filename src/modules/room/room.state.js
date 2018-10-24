@@ -8,7 +8,7 @@ const usersRef = firebase.firestore().collection('users')
 
 // Initial state
 const initialState = {
-  opponent: null,
+  opponent: {},
   waiting: null,
   countdown: 0,
   roundIndex: 0
@@ -22,8 +22,10 @@ const COUNTDOWN = 'RoomState/COUNTDOWN'
 const RESET = 'RoomState/RESET'
 
 // Action creators
-export const findRoom = () => async dispatch => {
+export const findRoom = () => async (dispatch, getState) => {
   dispatch(setWaiting(true))
+
+  const { user } = getState()
 
   roomsRef
     .where('status', '==', 'waiting')
@@ -34,6 +36,9 @@ export const findRoom = () => async dispatch => {
       if (docs.length < 1) {
         dispatch(createRoom())
       } else {
+        // const { players } = docs[0].data()
+        // if (!players.includes(user.uid)) dispatch(enterRoom(docs[0].ref))
+        // else setTimeout(() => dispatch(findRoom()), 2000)
         dispatch(enterRoom(docs[0].ref))
       }
     })
@@ -51,7 +56,8 @@ export const createRoom = () => async (dispatch, getStore) => {
       owner: user.uid,
       status: 'waiting',
       players: [],
-      roomId: roomRef.id
+      roomId: roomRef.id,
+      scores: []
     })
     .then(async () => {})
     .catch(err => {
@@ -79,18 +85,20 @@ export const enterRoom = roomRef => async (dispatch, getStore) => {
     // CHECK IF ANOTHER PLAYER ENTERED THE ROOM AND SET ROOM TO PLAYING
     if (players.length > 1 && status === 'waiting') {
       roomRef.update({
-        status: 'playing'
+        status: 'starting'
       })
       // AFTER ROOM UPDATE STATUS TO PLAYING COUNTDOWN AND GAME
-    } else if (status === 'playing' && roundIndex === 0) {
+    } else if (status === 'starting') {
       dispatch(setOpponent(players.find(p => p !== user.uid)))
       dispatch(
-        setCountdown(3, () => {
+        setCountdown(5, () => {
           dispatch(setupGame(rounds[roundIndex]))
         })
       )
       dispatch(setWaiting(false))
-
+      roomRef.update({
+        status: 'playing'
+      })
       //  Check IF ROUND INDEX CHANGE AND START NEW ROUND
     } else if (roundIndex !== previousRoom.roundIndex) {
       if (roundIndex < 3) {
@@ -107,7 +115,7 @@ export const enterRoom = roomRef => async (dispatch, getStore) => {
 }
 
 const setCountdown = (count, callback) => dispatch => {
-  if (count > -1) {
+  if (count > 0) {
     dispatch({
       type: COUNTDOWN,
       payload: count
@@ -136,6 +144,10 @@ export const setOpponent = opponentId => async dispatch => {
   })
 }
 
+export const reset = () => ({
+  type: RESET
+})
+
 // Reducer
 export default (state = initialState, action = {}) => {
   switch (action.type) {
@@ -157,3 +169,6 @@ export default (state = initialState, action = {}) => {
 // Selectors
 export const selectRoom = state => state.room
 export const selectOpponent = state => selectRoom(state).opponent
+export const selectRound = state => selectRoom(state).roundIndex
+export const selectScores = state => selectRoom(state).scores
+export const selectEnded = state => selectRoom(state).status === 'ended'

@@ -1,9 +1,12 @@
 import firebase from 'react-native-firebase'
 
+import { findRoom } from '../room/room.state'
+
 const ref = firebase.firestore().collection('users')
 
 // Initial state
 const initialState = {
+  fetching: false,
   uid: null,
   name: null
 }
@@ -57,10 +60,24 @@ export const createUser = name => async dispatch => {
         type: SET,
         payload: user
       })
+      dispatch(findRoom())
     })
     .catch(err => {
       console.log('ERROR CREATING USER', err)
     })
+}
+
+export const addScore = score => (dispatch, getState) => {
+  const { user } = getState()
+
+  const updatedUser = { ...user, score: user.score + score }
+
+  ref.doc(user.uid).update(updatedUser)
+
+  dispatch({
+    type: SET,
+    payload: updatedUser
+  })
 }
 
 // Reducer

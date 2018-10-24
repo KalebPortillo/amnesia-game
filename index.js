@@ -10,7 +10,7 @@ const { store, persistor } = configureStore()
 
 const Main = () => (
   <Provider store={store}>
-    <App persistor={persistor} />
+    <App persistor={persistor} dispatch={store.dispatch} />
   </Provider>
 )
 

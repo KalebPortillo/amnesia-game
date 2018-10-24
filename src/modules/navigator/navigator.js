@@ -36,7 +36,10 @@ const Navigator = StackNavigator(
     // Default config for all screens
     headerMode: 'none',
     initialRouteName: 'Home',
-    transitionConfig
+    transitionConfig,
+    navigationOptions: {
+      gesturesEnabled: false
+    }
   }
 )
 

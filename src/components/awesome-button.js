@@ -6,12 +6,17 @@ type Props = {
   onPress: Function,
   text: string,
   style?: number | Object | Array<number>,
-  textStyle?: number | Object | Array<number>
+  textStyle?: number | Object | Array<number>,
+  disabled?: boolean
 }
 
 export default function AwesomeButton(props: Props) {
   return (
-    <TouchableOpacity onPress={props.onPress} style={[styles.container, props.style]}>
+    <TouchableOpacity
+      onPress={props.onPress}
+      style={[styles.container, props.style]}
+      disabled={props.disabled}
+    >
       <Text style={[styles.text, props.textStyle]}>{props.text.toUpperCase()}</Text>
     </TouchableOpacity>
   )
@@ -19,17 +24,19 @@ export default function AwesomeButton(props: Props) {
 
 AwesomeButton.defaultProps = {
   style: undefined,
-  textStyle: undefined
+  textStyle: undefined,
+  disabled: false
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     maxHeight: Metrics.doubleSection,
+    minWidth: Metrics.doubleSection * 2,
     padding: Metrics.baseMargin,
-    backgroundColor: Colors.transparent,
-    ...AppStyles.centerChild,
-    ...AppStyles.buttonBorder
+    backgroundColor: Colors.greenLight,
+    borderRadius: Metrics.doubleSection / 2,
+    ...AppStyles.centerChild
   },
   text: {
     ...Fonts.style.normal,

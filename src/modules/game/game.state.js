@@ -1,7 +1,7 @@
 import firebase from 'react-native-firebase'
 
 import update from 'immutability-helper'
-import { NavigationActions } from 'react-navigation'
+import { addScore } from '../user/user.state'
 
 const gamesRef = firebase.firestore().collection('games')
 const roomsRef = firebase.firestore().collection('rooms')
@@ -11,60 +11,50 @@ let countdownTimeout
 
 const cardList = [
   {
-    name: 'php',
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png',
     id: 1
   },
   {
-    name: 'css3',
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png',
     id: 2
   },
   {
-    name: 'html5',
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png',
     id: 3
   },
   {
-    name: 'jquery',
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/jquery-logo.png',
     id: 4
+  },
+  {
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png',
+    id: 5
+  },
+  {
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png',
+    id: 6
+  },
+  {
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/photoshop-logo.png',
+    id: 7
+  },
+  {
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png',
+    id: 8
+  },
+  {
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png',
+    id: 9
+  },
+  {
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png',
+    id: 10
   }
-  // {
-  //   name: 'javascript',
-  //   img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png',
-  //   id: 5
-  // },
-  // {
-  //   name: 'node',
-  //   img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png',
-  //   id: 6
-  // },
-  // {
-  //   name: 'photoshop',
-  //   img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/photoshop-logo.png',
-  //   id: 7
-  // },
-  // {
-  //   name: 'python',
-  //   img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png',
-  //   id: 8
-  // },
-  // {
-  //   name: 'rails',
-  //   img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png',
-  //   id: 9
-  // },
-  // {
-  //   name: 'sass',
-  //   img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png',
-  //   id: 10
-  // }
 ]
 
 // Initial state
 const initialState = {
-  cards: [],
+  cards: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
   waiting: null,
   turn: null
 }
@@ -124,18 +114,23 @@ export const createGame = gameRef => async (dispatch, getStore) => {
 }
 
 export const setupGame = gameId => async (dispatch, getState) => {
-  console.log('JOGANDO >>>>>>>>>>>>')
+  if (unsubscribe) {
+    unsubscribe()
+    dispatch({ type: RESET })
+  }
+
   const gameDoc = gamesRef.doc(gameId)
 
   unsubscribe = gameDoc.onSnapshot(snapshot => {
-    const previousGame = getState().game
+    const { game: previousGame } = getState()
     const game = snapshot.data()
+
     console.log('ON GAME SNAPSHOT', game)
 
     if (previousGame.turn !== null && previousGame.turn !== game.turn && !game.finished) {
-      dispatch(setCountdown(6))
+      dispatch(onTurnChanged())
     } else if (game.finished && !previousGame.finished) {
-      dispatch(nextRound())
+      dispatch(onRoundFinished(game))
     }
 
     dispatch({
@@ -203,8 +198,6 @@ export const changeTurn = () => (dispatch, getState) => {
 }
 
 export const setCountdown = (count, callback = changeTurn) => dispatch => {
-  console.log('COUNT DOWN', count)
-
   if (count > -1) {
     dispatch({
       type: COUNTDOWN,
@@ -222,40 +215,34 @@ export const setCountdown = (count, callback = changeTurn) => dispatch => {
 const finishRound = () => (dispatch, getState) => {
   const { user, game, room } = getState()
   const { gameId, cards } = game
+  const { roomId, scores, opponent, roundIndex } = room
 
   console.log('FINISH ROUND >>>>')
 
   const userMatchedCards = cards.filter(c => c.matched === user.uid)
 
+  const myScore = userMatchedCards.length * 2 * (roundIndex + 1)
+  const opponentScore = (cards.length - userMatchedCards.length) * 2 * (roundIndex + 1)
+
   gamesRef.doc(gameId).update({
     finished: true,
     scores: {
-      [user.uid]: userMatchedCards.length * 2,
-      [room.opponent.uid]: (cards.length - userMatchedCards.length) * 2
+      [user.uid]: myScore,
+      [opponent.uid]: opponentScore
     }
   })
-}
 
-const nextRound = () => (dispatch, getState) => {
-  clearTimeout(countdownTimeout)
-
-  const {
-    room: { roundIndex }
-  } = getState()
-
-  if (roundIndex === 2) {
-    dispatch(gameOver())
-    return
-  }
-  dispatch(setCountdown(12, changeRound))
+  roomsRef.doc(roomId).update({
+    scores: {
+      [user.uid]: myScore + (scores[user.uid] || 0),
+      [opponent.uid]: opponentScore + (scores[opponent.uid] || 0)
+    }
+  })
 }
 
 const changeRound = () => (dispatch, getState) => {
   const { room, user, game } = getState()
   const { roundIndex, roomId } = room
-
-  unsubscribe()
-  dispatch({ type: RESET })
 
   if (user.uid === game.owner)
     roomsRef.doc(roomId).update({
@@ -263,8 +250,37 @@ const changeRound = () => (dispatch, getState) => {
     })
 }
 
-const gameOver = () => dispatch => {
+const nextRound = () => dispatch => {
+  dispatch(setCountdown(6, changeRound))
+}
+
+const gameOver = () => (dispatch, getState) => {
   console.log('GAME OVER!!!!')
+  const { room } = getState()
+  roomsRef.doc(room.roomId).update({
+    status: 'ended'
+  })
+}
+
+const onTurnChanged = () => dispatch => {
+  if (countdownTimeout) clearTimeout(countdownTimeout)
+
+  dispatch(setCountdown(6))
+}
+
+const onRoundFinished = game => (dispatch, getState) => {
+  clearTimeout(countdownTimeout)
+
+  const { room, user } = getState()
+
+  const score = game.scores[user.uid]
+  dispatch(addScore(score))
+
+  if (room.roundIndex === 2) {
+    dispatch(gameOver())
+  } else {
+    dispatch(nextRound())
+  }
 }
 
 // Reducer

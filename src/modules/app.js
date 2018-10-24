@@ -9,15 +9,17 @@ import { Loader } from '../components'
 
 // import configureStore from '../redux/store'
 import Navigator from './navigator/navigator.container'
+import { authenticationRequest } from './user/user.state'
 
 // const { store, persistor } = configureStore()
 type Props = {
-  persistor: Object
+  persistor: Object,
+  dispatch: Function
 }
 export default class App extends Component<Props> {
   componentDidMount() {
     SplashScreen.hide()
-    console.log('PROPS', this.props)
+    this.props.dispatch(authenticationRequest())
   }
 
   render() {
