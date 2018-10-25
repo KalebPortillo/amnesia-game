@@ -43,10 +43,16 @@ export default class Game extends PureComponent<Props> {
     ) : (
       <View style={{ alignItems: 'center' }}>
         {myTurn || (
-          <Text
-            numberOfLines={2}
-            style={{ color: Colors.white, fontSize: 10, textAlign: 'center', marginBottom: 5 }}
-          >{`Esperando jogada de\n${opponent.name}`}</Text>
+          <View>
+            <Text style={{ color: Colors.white, fontSize: 10, textAlign: 'center' }}>
+              Esperando jogada de
+            </Text>
+            <Text
+              style={{ color: Colors.orange, fontSize: 10, textAlign: 'center', marginBottom: 5 }}
+            >
+              {opponent.name}
+            </Text>
+          </View>
         )}
         <RoundCounter count={countdown} size={myTurn ? 30 : 17} light />
       </View>
@@ -81,8 +87,12 @@ export default class Game extends PureComponent<Props> {
     const myTurn = turn === user.uid
     return (
       <View style={styles.container}>
-        <Header title={`Round ${round + 1}`} middleComponent={this.getHeaderInfo()} />
-        <View style={styles.body}>
+        <Header
+          title={`Round ${round + 1}`}
+          middleComponent={this.getHeaderInfo()}
+          style={{ backgroundColor: Colors.background }}
+        />
+        <View style={[styles.body, { borderColor: myTurn ? Colors.greenDark : Colors.orange }]}>
           {cards.map((card, i) => {
             const canShow = card.picked || !!card.matched
             return (
@@ -177,8 +187,7 @@ export default class Game extends PureComponent<Props> {
 
 const styles = {
   container: {
-    flex: 1,
-    backgroundColor: colors.background
+    flex: 1
   },
   header: {
     flex: 1,
@@ -190,8 +199,9 @@ const styles = {
     flex: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: colors.white,
-    padding: 1
+    borderWidth: 3,
+    padding: 1,
+    margin: 2
   },
   cardButton: {
     height: '20%',

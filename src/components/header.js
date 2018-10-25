@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     height: Metrics.headerHeight,
     width: Metrics.screenWidth,
     paddingHorizontal: Metrics.baseMargin,
-    paddingTop: 20,
+    paddingTop: Metrics.navBarHeight,
     paddingBottom: 0
   },
   left: {

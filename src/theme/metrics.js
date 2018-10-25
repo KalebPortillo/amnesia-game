@@ -1,4 +1,4 @@
-import { Dimensions, Platform } from 'react-native'
+import { Dimensions, Platform, StatusBar } from 'react-native'
 
 const { width, height } = Dimensions.get('window')
 
@@ -11,10 +11,10 @@ export default {
   doubleBaseMargin: 20,
   section: 25,
   doubleSection: 50,
-  headerHeight: 80,
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
-  navBarHeight: Platform.select({ ios: 64, android: 54 }),
+  navBarHeight: Platform.select({ ios: 18, android: StatusBar.currentHeight }),
+  headerHeight: 85,
   buttonRadius: 5,
   buttonBorder: 2,
   roundCounter: 60,

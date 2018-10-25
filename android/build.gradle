@@ -34,6 +34,17 @@ subprojects {
         versionMinor = npmVersion[1]
         versionPatch = npmVersion[2]
     }
+
+    project.configurations.all {
+        afterEvaluate {project ->
+            if (project.hasProperty("android")) {
+                android {
+                    compileSdkVersion 28
+                    buildToolsVersion '28.0.2'
+                }
+            }
+        }
+    }
 }
 
 def getNpmVersion() {
