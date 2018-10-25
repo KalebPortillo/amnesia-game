@@ -21,6 +21,9 @@ const OPPONENT = 'RoomState/OPPONENT'
 const COUNTDOWN = 'RoomState/COUNTDOWN'
 const RESET = 'RoomState/RESET'
 
+let unsubscribe = null
+let findRoomTimeout = null
+
 // Action creators
 export const findRoom = () => async (dispatch, getState) => {
   dispatch(setWaiting(true))
@@ -36,10 +39,14 @@ export const findRoom = () => async (dispatch, getState) => {
       if (docs.length < 1) {
         dispatch(createRoom())
       } else {
-        // const { players } = docs[0].data()
-        // if (!players.includes(user.uid)) dispatch(enterRoom(docs[0].ref))
-        // else setTimeout(() => dispatch(findRoom()), 2000)
-        dispatch(enterRoom(docs[0].ref))
+        const { players } = docs[0].data()
+        if (!players.includes(user.uid)) {
+          dispatch(enterRoom(docs[0].ref))
+          dispatch(subscribeRoom(docs[0].ref))
+        } else {
+          dispatch(subscribeRoom(docs[0].ref))
+          findRoomTimeout = setTimeout(() => dispatch(findRoom()), 4000)
+        }
       }
     })
     .catch(err => {
@@ -66,12 +73,15 @@ export const createRoom = () => async (dispatch, getStore) => {
 
   dispatch(createRounds(roomRef))
   dispatch(enterRoom(roomRef))
+  dispatch(subscribeRoom(roomRef))
 }
 
-export const enterRoom = roomRef => async (dispatch, getStore) => {
+export const subscribeRoom = roomRef => async (dispatch, getStore) => {
   const { user } = getStore()
 
-  roomRef.onSnapshot(doc => {
+  if (unsubscribe) unsubscribe()
+
+  unsubscribe = roomRef.onSnapshot(doc => {
     console.log('ON ROOM CHANGE', doc.data())
     const previousRoom = getStore().room
     const { players, status, rounds, roundIndex } = doc.data()
@@ -84,6 +94,7 @@ export const enterRoom = roomRef => async (dispatch, getStore) => {
 
     // CHECK IF ANOTHER PLAYER ENTERED THE ROOM AND SET ROOM TO PLAYING
     if (players.length > 1 && status === 'waiting') {
+      if (findRoomTimeout) clearTimeout(findRoomTimeout)
       roomRef.update({
         status: 'starting'
       })
@@ -107,6 +118,10 @@ export const enterRoom = roomRef => async (dispatch, getStore) => {
       }
     }
   })
+}
+
+export const enterRoom = roomRef => async (dispatch, getStore) => {
+  const { user } = getStore()
 
   const roomSnap = await roomRef.get()
   roomRef.update({
