@@ -3,6 +3,7 @@ import { Easing, Animated } from 'react-native'
 
 import Home from '../home/home.container'
 import Game from '../game/game.container'
+import Ranking from '../ranking/ranking.container'
 
 const transitionConfig = () => ({
   transitionSpec: {
@@ -30,7 +31,8 @@ const transitionConfig = () => ({
 const Navigator = StackNavigator(
   {
     Home: { screen: Home },
-    Game: { screen: Game }
+    Game: { screen: Game },
+    Ranking: { screen: Ranking }
   },
   {
     // Default config for all screens

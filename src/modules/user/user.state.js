@@ -8,13 +8,15 @@ const ref = firebase.firestore().collection('users')
 const initialState = {
   fetching: null,
   uid: null,
-  name: null
+  name: null,
+  ranking: []
 }
 
 // Actions
 const SET = 'UserState/SET'
 const RESET = 'UserState/RESET'
 const FETCHING = 'UserState/FETCHING'
+const RANKING = 'UserState/RANKING'
 
 // Action creators
 export const authenticationRequest = () => async dispatch => {
@@ -42,6 +44,24 @@ export const retrieveUser = uid => async dispatch => {
     })
     .catch(err => {
       console.log('ERROR GETTING USER: ', err)
+    })
+}
+
+export const retrieveRanking = () => async dispatch => {
+  ref
+    .orderBy('score', 'desc')
+    .get()
+    .then(docs => {
+      console.log('OPA', docs)
+      const users = []
+      docs.forEach(doc => users.push(doc.data()))
+      dispatch({
+        type: RANKING,
+        payload: users
+      })
+    })
+    .catch(err => {
+      console.log('ERROR GETTING RANKING: ', err)
     })
 }
 
@@ -95,11 +115,12 @@ export default (state = initialState, action = {}) => {
   switch (action.type) {
     case SET:
       return { ...state, ...action.payload }
-
     case RESET:
       return initialState
     case FETCHING:
       return { ...state, fetching: action.payload }
+    case RANKING:
+      return { ...state, ranking: action.payload }
     default:
       return state
   }

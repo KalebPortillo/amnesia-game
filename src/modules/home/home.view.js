@@ -11,7 +11,8 @@ type Props = {
   createUser: Function,
   findRoom: Function,
   user: Object,
-  room: Object
+  room: Object,
+  navigation: Object
 }
 export default class Home extends Component<Props> {
   state = {
@@ -76,11 +77,18 @@ export default class Home extends Component<Props> {
             {!opponent.name ? (
               <View>
                 {waiting === null ? (
-                  <AwesomeButton
-                    onPress={this.startGame}
-                    text="JOGAR"
-                    disabled={!name && !this.state.name}
-                  />
+                  <View>
+                    <AwesomeButton
+                      onPress={this.startGame}
+                      text="JOGAR"
+                      disabled={!name && !this.state.name}
+                      style={{ marginBottom: 20 }}
+                    />
+                    <AwesomeButton
+                      onPress={() => this.props.navigation.push('Ranking')}
+                      text="Ranking"
+                    />
+                  </View>
                 ) : (
                   <View>
                     <ActivityIndicator color={Colors.white} size="large" />
