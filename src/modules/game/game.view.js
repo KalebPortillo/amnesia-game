@@ -60,7 +60,6 @@ export default class Game extends PureComponent<Props> {
   }
 
   handleCardPress = (card, index) => {
-    console.log('ON PRESSS')
     this.props.updateCard(card, index)
   }
 

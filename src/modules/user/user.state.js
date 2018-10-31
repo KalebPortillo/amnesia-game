@@ -22,7 +22,6 @@ const RANKING = 'UserState/RANKING'
 export const authenticationRequest = () => async dispatch => {
   const { user } = await firebase.auth().signInAnonymously()
   dispatch(setFetching(true))
-  console.log('CREDENTIALS', user)
 
   if (user.displayName) {
     dispatch(retrieveUser(user.uid))
@@ -52,7 +51,6 @@ export const retrieveRanking = () => async dispatch => {
     .orderBy('score', 'desc')
     .get()
     .then(docs => {
-      console.log('OPA', docs)
       const users = []
       docs.forEach(doc => users.push(doc.data()))
       dispatch({
@@ -80,7 +78,6 @@ export const createUser = name => async dispatch => {
     .doc(anonymousUser.uid)
     .set(user)
     .then(() => {
-      console.log('USER CREATED')
       dispatch({
         type: SET,
         payload: user

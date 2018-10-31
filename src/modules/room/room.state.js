@@ -35,7 +35,6 @@ export const findRoom = () => async (dispatch, getState) => {
     .get()
     .then(querySnapshot => {
       const { docs } = querySnapshot
-      console.log('FIND ROOM', querySnapshot)
       if (docs.length < 1) {
         dispatch(createRoom())
       } else {
@@ -82,7 +81,6 @@ export const subscribeRoom = roomRef => async (dispatch, getStore) => {
   if (unsubscribe) unsubscribe()
 
   unsubscribe = roomRef.onSnapshot(doc => {
-    console.log('ON ROOM CHANGE', doc.data())
     const previousRoom = getStore().room
     const { players, status, rounds, roundIndex } = doc.data()
 
@@ -114,7 +112,6 @@ export const subscribeRoom = roomRef => async (dispatch, getStore) => {
     } else if (roundIndex !== previousRoom.roundIndex) {
       if (roundIndex < 3) {
         dispatch(setupGame(rounds[roundIndex]))
-        console.log('PROCEED TO CHANGE ROUND >>>>>>')
       }
     }
   })

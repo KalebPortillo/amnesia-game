@@ -18,7 +18,6 @@ export default class Card extends Component<Props> {
     const canShowNext = nextProps.card.picked || !!nextProps.card.matched
 
     if (canShow !== canShowNext) {
-      console.log('MUDOU CANSHOW', card.id, canShowNext)
       this.rotateCard(canShowNext)
     }
   }

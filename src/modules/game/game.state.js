@@ -82,8 +82,6 @@ export const setupGame = gameId => async (dispatch, getState) => {
     const { game: previousGame } = getState()
     const game = snapshot.data()
 
-    console.log('ON GAME SNAPSHOT', game)
-
     if (previousGame.turn !== null && previousGame.turn !== game.turn && !game.finished) {
       dispatch(onTurnChanged())
     } else if (game.finished && !previousGame.finished) {
@@ -174,8 +172,6 @@ const finishRound = () => (dispatch, getState) => {
   const { gameId, cards } = game
   const { roomId, scores, opponent, roundIndex } = room
 
-  console.log('FINISH ROUND >>>>')
-
   const userMatchedCards = cards.filter(c => c.matched === user.uid)
 
   const myScore = userMatchedCards.length * 2 * (roundIndex + 1)
@@ -212,7 +208,6 @@ const nextRound = () => dispatch => {
 }
 
 const gameOver = () => (dispatch, getState) => {
-  console.log('GAME OVER!!!!')
   const { room } = getState()
   roomsRef.doc(room.roomId).update({
     status: 'ended'
