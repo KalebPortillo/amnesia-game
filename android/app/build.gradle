@@ -150,6 +150,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fast-image')
     implementation project(':react-native-firebase')
     implementation project(':react-native-splash-screen')
     implementation project(':react-native-config')

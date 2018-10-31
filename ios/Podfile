@@ -15,6 +15,8 @@ target 'amnesia' do
   target 'amnesia-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'react-native-fast-image', :path => '../node_modules/react-native-fast-image'
+
   end
 
   target 'amnesiaTests' do

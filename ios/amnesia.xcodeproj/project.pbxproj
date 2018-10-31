@@ -25,6 +25,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1FC01000B5014196BE00FCF6 /* raleway-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A548B628FDAA4E41AD1349A9 /* raleway-semibold.ttf */; };
+		2775DDE1218A005C009E6E9A /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2775DDB8218A0046009E6E9A /* libFastImage.a */; };
 		27F4196F216F957A00CF4D5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27F4196E216F957A00CF4D5B /* GoogleService-Info.plist */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -182,6 +183,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
 			remoteInfo = "privatedata-tvOS";
+		};
+		2775DDB7218A0046009E6E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2775DDB2218A0045009E6E9A /* FastImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A287971D1DE0C0A60081BDFA;
+			remoteInfo = FastImage;
 		};
 		279A3953207D88270043A7A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -381,6 +389,7 @@
 		13D205DA7A5944FDBACCFFE1 /* opensans-semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "opensans-semibold.ttf"; path = "../src/assets/fonts/opensans-semibold.ttf"; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		16B2929DC2FE46439E70E076 /* raleway-extrabold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "raleway-extrabold.ttf"; path = "../src/assets/fonts/raleway-extrabold.ttf"; sourceTree = "<group>"; };
+		2775DDB2218A0045009E6E9A /* FastImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FastImage.xcodeproj; path = "../node_modules/react-native-fast-image/ios/FastImage.xcodeproj"; sourceTree = "<group>"; };
 		27F4196E216F957A00CF4D5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* amnesia-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amnesia-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* amnesia-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "amnesia-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,6 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2775DDE1218A005C009E6E9A /* libFastImage.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -597,6 +607,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2775DDB3218A0045009E6E9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2775DDB8218A0046009E6E9A /* libFastImage.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		279A392A207D88260043A7A5 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +705,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2775DDB2218A0045009E6E9A /* FastImage.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -884,6 +903,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 2775DDB3218A0045009E6E9A /* Products */;
+					ProjectRef = 2775DDB2218A0045009E6E9A /* FastImage.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -1065,6 +1088,13 @@
 			fileType = archive.ar;
 			path = "libprivatedata-tvOS.a";
 			remoteRef = 2763A694207AED01000A05F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2775DDB8218A0046009E6E9A /* libFastImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFastImage.a;
+			remoteRef = 2775DDB7218A0046009E6E9A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		279A3954207D88270043A7A5 /* libSplashScreen.a */ = {

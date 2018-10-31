@@ -3,6 +3,7 @@ package com.amnesia;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dylanvann.fastimage.FastImageViewPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new FastImageViewPackage(),
                     new RNFirebasePackage(),
                     new ReactNativeConfigPackage(),
                     new SplashScreenReactPackage(),

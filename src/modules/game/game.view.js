@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import { View, Image, TouchableOpacity, Text } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
-import colors from '../../theme/colors'
 import Header from '../../components/header'
 import RoundCounter from '../../components/round-counter'
+import Card from './game.card'
 import { AppStyles, Colors } from '../../theme'
 import { AwesomeButton } from '../../components'
 import ranking from '../../utils/ranking'
@@ -60,6 +60,7 @@ export default class Game extends PureComponent<Props> {
   }
 
   handleCardPress = (card, index) => {
+    console.log('ON PRESSS')
     this.props.updateCard(card, index)
   }
 
@@ -84,7 +85,6 @@ export default class Game extends PureComponent<Props> {
       ended,
       totalScores
     } = this.props
-    const myTurn = turn === user.uid
     return (
       <View style={styles.container}>
         <Header
@@ -92,43 +92,24 @@ export default class Game extends PureComponent<Props> {
           middleComponent={this.getHeaderInfo()}
           style={{ backgroundColor: Colors.background }}
         />
-        <View style={[styles.body, { borderColor: myTurn ? Colors.greenDark : Colors.orange }]}>
+        <View style={[styles.body]}>
           {cards.map((card, i) => {
-            const canShow = card.picked || !!card.matched
             return (
-              <TouchableOpacity
-                disabled={canShow || waiting || !myTurn}
+              <Card
                 key={i}
-                style={[styles.cardButton]}
-                onPress={() => this.handleCardPress(card, i)}
-              >
-                <View style={styles.card}>
-                  {canShow && (
-                    <Image resizeMode="contain" source={{ uri: card.img }} style={[styles.card]} />
-                  )}
-                  {card.matched && (
-                    <View
-                      style={{
-                        ...AppStyles.positionAbsolute,
-                        backgroundColor: Colors.transparentDark,
-                        ...AppStyles.centerChild,
-                        paddingHorizontal: 10
-                      }}
-                    >
-                      <Text
-                        style={{
-                          color: card.matched === user.uid ? Colors.greenLight : Colors.orange,
-                          textAlign: 'center'
-                        }}
-                      >
-                        {card.matched === user.uid ? user.name : opponent.name}
-                      </Text>
-                    </View>
-                  )}
-                </View>
-              </TouchableOpacity>
+                user={user}
+                card={card}
+                turn={turn}
+                opponent={opponent}
+                onCardPress={() => this.handleCardPress(card, i)}
+              />
             )
           })}
+
+          {waiting && (
+            <View style={{ ...AppStyles.positionAbsolute, backgroundColor: Colors.transparent }} />
+          )}
+
           {finished && (
             <View
               style={{
@@ -199,17 +180,6 @@ const styles = {
     flex: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderWidth: 3,
-    padding: 1,
-    margin: 2
-  },
-  cardButton: {
-    height: '20%',
-    width: '25%',
     padding: 1
-  },
-  card: {
-    flex: 1,
-    backgroundColor: colors.greenLight
   }
 }
