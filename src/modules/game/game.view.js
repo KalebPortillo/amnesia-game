@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
-import { View, Image, TouchableOpacity, Text } from 'react-native'
+import { View, Image, Text } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
 import Header from '../../components/header'
 import RoundCounter from '../../components/round-counter'
 import Card from './game.card'
-import { AppStyles, Colors } from '../../theme'
+import { AppStyles, Colors, Media } from '../../theme'
 import { AwesomeButton } from '../../components'
 import ranking from '../../utils/ranking'
 
@@ -35,7 +35,9 @@ export default class Game extends PureComponent<Props> {
         <Text
           numberOfLines={2}
           style={{ color: Colors.white, fontSize: 10, textAlign: 'center', marginBottom: 5 }}
-        >{`Voce conquistou`}</Text>
+        >
+          Voce conquistou
+        </Text>
         <View style={{ padding: 5, backgroundColor: Colors.white, borderRadius: 3 }}>
           <Text style={{ color: Colors.greenLight, fontSize: 12 }}>{scores[user.uid]} PONTOS</Text>
         </View>
@@ -92,18 +94,16 @@ export default class Game extends PureComponent<Props> {
           style={{ backgroundColor: Colors.background }}
         />
         <View style={[styles.body]}>
-          {cards.map((card, i) => {
-            return (
-              <Card
-                key={i}
-                user={user}
-                card={card}
-                turn={turn}
-                opponent={opponent}
-                onCardPress={() => this.handleCardPress(card, i)}
-              />
-            )
-          })}
+          {cards.map((card, i) => (
+            <Card
+              key={i}
+              user={user}
+              card={card}
+              turn={turn}
+              opponent={opponent}
+              onCardPress={() => this.handleCardPress(card, i)}
+            />
+          ))}
 
           {waiting && (
             <View style={{ ...AppStyles.positionAbsolute, backgroundColor: Colors.transparent }} />
@@ -114,23 +114,37 @@ export default class Game extends PureComponent<Props> {
               style={{
                 ...AppStyles.positionAbsolute,
                 ...AppStyles.centerChild,
-                backgroundColor: Colors.transparentDark
+                backgroundColor: Colors.transparentDarker
               }}
             >
               {!ended ? (
                 <View style={AppStyles.centerChild}>
                   <Text style={{ color: Colors.white, fontSize: 20, marginBottom: 20 }}>
-                    O proximo round comeca em:
+                    O próximo round começa em:
                   </Text>
                   <RoundCounter count={countdown} size={80} />
                 </View>
               ) : (
                 <View style={AppStyles.centerChild}>
-                  <Text style={{ color: Colors.white, fontSize: 12, marginBottom: 15 }}>
-                    {totalScores[user.uid] > totalScores[opponent.uid]
-                      ? 'Parabens! Voce venceu!'
-                      : 'Voce perdeu :('}
-                  </Text>
+                  {totalScores[user.uid] > totalScores[opponent.uid] ? (
+                    <View style={styles.result}>
+                      <Image
+                        resizeMode="contain"
+                        source={Media.icons.elephantHappy}
+                        style={styles.elephant}
+                      />
+                      <Text style={styles.resultText}>Você venceu!</Text>
+                    </View>
+                  ) : (
+                    <View style={styles.result}>
+                      <Image
+                        resizeMode="contain"
+                        source={Media.icons.elephantSad}
+                        style={styles.elephant}
+                      />
+                      <Text style={styles.resultText}>Você perdeu.</Text>
+                    </View>
+                  )}
                   <View
                     style={{
                       padding: 5,
@@ -180,5 +194,19 @@ const styles = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 1
+  },
+  result: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  resultText: {
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: '800',
+    marginBottom: 55,
+    textAlign: 'center'
+  },
+  elephant: {
+    marginBottom: 10
   }
 }

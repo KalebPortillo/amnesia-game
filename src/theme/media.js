@@ -7,6 +7,8 @@ const images = {
 
 const icons = {
   elephant: require('../assets/media/elephant.png'),
+  elephantSad: require('../assets/media/elephant-sad.png'),
+  elephantHappy: require('../assets/media/elephant-happy.png'),
   rank: require('../assets/media/rank.png')
 }
 
