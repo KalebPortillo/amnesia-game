@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     maxHeight: Metrics.doubleSection,
-    minWidth: Metrics.doubleSection * 2,
+    minWidth: Metrics.doubleSection * 3,
     padding: Metrics.baseMargin,
     backgroundColor: Colors.greenLight,
     borderRadius: Metrics.doubleSection / 2,

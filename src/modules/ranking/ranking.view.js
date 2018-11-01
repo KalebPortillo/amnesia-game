@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text, ActivityIndicator, FlatList } from 'react-native'
+import { View, Text, ActivityIndicator, FlatList } from 'react-native'
 import { Colors } from '../../theme'
 import { AwesomeButton } from '../../components'
 import Header from '../../components/header'
@@ -48,7 +48,7 @@ export default class Home extends Component<Props> {
                       <Text style={{ color: textColor, fontSize: 12 }}>
                         {getRanking(item.score)}
                       </Text>
-                      <Text style={{ color: textColor, fontSize: 12 }}>Pontos {item.score}</Text>
+                      <Text style={{ color: textColor, fontSize: 12 }}>{item.score} pontos</Text>
                     </View>
                   </View>
                 )
@@ -56,12 +56,12 @@ export default class Home extends Component<Props> {
             />
           ) : (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <ActivityIndicator size={'large'} color={Colors.white} />
+              <ActivityIndicator size="large" color={Colors.white} />
             </View>
           )}
         </View>
-        <View style={{ flex: 1, padding: 10 }}>
-          <AwesomeButton onPress={() => this.props.navigation.pop()} text={'voltar ao lobby'} />
+        <View style={{ flex: 1, padding: 20 }}>
+          <AwesomeButton onPress={() => this.props.navigation.pop()} text="voltar ao lobby" />
         </View>
       </View>
     )

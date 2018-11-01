@@ -6,7 +6,8 @@ const images = {
 }
 
 const icons = {
-  elephant: require('../assets/media/elephant.png')
+  elephant: require('../assets/media/elephant.png'),
+  rank: require('../assets/media/rank.png')
 }
 
 export default {

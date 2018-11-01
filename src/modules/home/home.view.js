@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text, ActivityIndicator } from 'react-native'
-import { Colors } from '../../theme'
+import { View, TextInput, Text, ActivityIndicator, Image } from 'react-native'
+import { Colors, Media } from '../../theme'
 import { AwesomeButton } from '../../components'
 import Header from '../../components/header'
 import RoundCounter from '../../components/round-counter'
@@ -43,7 +43,7 @@ export default class Home extends Component<Props> {
         <View style={styles.content}>
           <View style={styles.playerInfo}>
             {fetching ? (
-              <ActivityIndicator size={'large'} color={Colors.white} />
+              <ActivityIndicator size="large" color={Colors.white} />
             ) : (
               <View>
                 {name ? (
@@ -59,8 +59,9 @@ export default class Home extends Component<Props> {
                     style={{ borderWidth: 1, borderColor: Colors.black, paddingHorizontal: 10 }}
                   >
                     <TextInput
-                      style={{ height: 50, width: '90%', fontSize: 25 }}
+                      style={{ height: 50, width: '90%', fontSize: 24, color: Colors.greenDark }}
                       placeholder="Seu nome"
+                      placeholderTextColor={Colors.transparentLight}
                       onChangeText={text =>
                         this.setState({
                           name: text
@@ -83,10 +84,6 @@ export default class Home extends Component<Props> {
                       text="JOGAR"
                       disabled={!name && !this.state.name}
                       style={{ marginBottom: 20 }}
-                    />
-                    <AwesomeButton
-                      onPress={() => this.props.navigation.push('Ranking')}
-                      text="Ranking"
                     />
                   </View>
                 ) : (
@@ -119,6 +116,14 @@ export default class Home extends Component<Props> {
                 </View>
               </View>
             )}
+            <View style={styles.ranking}>
+              <Image resizeMode="contain" source={Media.icons.rank} style={styles.rankIcon} />
+              <AwesomeButton
+                onPress={() => this.props.navigation.push('Ranking')}
+                text="Ranking"
+                style={{ backgroundColor: 'transparent', minWidth: 100 }}
+              />
+            </View>
           </View>
         </View>
       </View>
@@ -140,5 +145,18 @@ const styles = {
     backgroundColor: Colors.greenLight,
     justifyContent: 'center',
     paddingHorizontal: 20
+  },
+  ranking: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    position: 'absolute',
+    right: 10,
+    bottom: 20,
+    width: 120
+  },
+  rankIcon: {
+    height: 15,
+    width: 15
   }
 }
